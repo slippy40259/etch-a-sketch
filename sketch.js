@@ -3,8 +3,17 @@ const BOX_SIZE = 960;
 const MAX_BOX_SIZE = 100;
 const button = document.querySelector("button");
 
+function getRandomColor() {
+    let red = Math.floor(Math.random() * 255).toString();
+    let blue = Math.floor(Math.random() * 255).toString();
+    let green = Math.floor(Math.random() * 255).toString();
+    return "rgb" + "(" + red + "," + blue + "," + green + ")";
+}
+
 function generateSketch(gridNum) {
     let gridSize = BOX_SIZE/gridNum;
+    let opacity = 0;
+    let opacityInc = 0.1;
     sketchBox.style.width = BOX_SIZE.toString() + "px";
     for (let i = 0; i < gridNum**2; i++) {
         let grid = document.createElement("div");
@@ -12,7 +21,8 @@ function generateSketch(gridNum) {
         grid.style.width = gridSize.toString() + "px";
         grid.style.height = gridSize.toString() + "px";
         grid.addEventListener("mouseleave", function(e) {
-            e.target.style.background = "blue";
+            e.target.style.background = getRandomColor();
+            e.target.style.opacity = opacity+=opacityInc;
         })
 
         sketchBox.appendChild(grid);
