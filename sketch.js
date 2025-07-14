@@ -39,10 +39,11 @@ function main() {
 
     button.addEventListener("click", function() {
         gridNum = prompt("Enter a size of the sketch box");
+        gridNum = Number(gridNum);
         if (gridNum > MAX_BOX_SIZE) {
             alert("The size cannot be larger than 100");
         }
-        else if (typeof gridNum != "number") {
+        else if (isNaN(gridNum) || gridNum == "") {
             alert("This is not a number");
         }
         else {
