@@ -1,5 +1,6 @@
 const sketchBox = document.querySelector(".container");
 const BOX_SIZE = 960;
+const MAX_BOX_SIZE = 100;
 const button = document.querySelector("button");
 
 function generateSketch(gridNum) {
@@ -28,7 +29,7 @@ function main() {
 
     button.addEventListener("click", function() {
         gridNum = prompt("Enter a size of the sketch box");
-        if (gridNum > 100) {
+        if (gridNum > MAX_BOX_SIZE) {
             alert("The size cannot be larger than 100");
         }
         else {
