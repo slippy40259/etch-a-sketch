@@ -42,6 +42,9 @@ function main() {
         if (gridNum > MAX_BOX_SIZE) {
             alert("The size cannot be larger than 100");
         }
+        else if (typeof gridNum != "number") {
+            alert("This is not a number");
+        }
         else {
             let grids = document.querySelectorAll(".grid");
             grids.forEach(removeSketch);
